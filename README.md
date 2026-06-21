@@ -2,6 +2,12 @@
 
 A real-time Kanban board built with React, Socket.IO, React DnD, Recharts, Vitest, React Testing Library, Playwright, and Node.js.
 
+## 🚀 Live Demo
+
+Try the application here:
+
+🔗 **https://realtime-kanban-board-five.vercel.app**
+
 ---
 
 ## Features
