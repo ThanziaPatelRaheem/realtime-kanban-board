@@ -1,0 +1,225 @@
+:root {
+  --text: #6b6375;
+  --main-bg: #f4f5f7;
+  --primary-bg: #ffffff;
+  --font-c: #edede9;
+  --btn-clr: #2563eb;
+}
+body {
+  background-color: var(--main-bg);
+}
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: var(--main-bg);
+  color: #000;
+}
+.App h1 {
+  text-align: center;
+  color: #111827;
+  font-size: 36px;
+  font-weight: 700;
+}
+.App h2 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #47484a;
+  text-align: center;
+}
+.board-wrapper {
+  width: 100%;
+}
+.task-form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 5px;
+  gap: 1.7rem;
+  padding: 1.5rem;
+  background-color: var(--primary-bg);
+}
+.task-form input {
+  padding: 0.6rem;
+}
+.task-form,
+textarea::placeholder,
+input::placeholder {
+  color: #374151;
+}
+.upload-file-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+.upload-file-wrapper input {
+  padding: 0;
+}
+.task-form button {
+  align-self: center;
+  width: 7rem;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--btn-clr);
+  color: var(--font-c);
+}
+.progress-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--primary-bg);
+  border: none;
+  border-radius: 5px;
+  margin: 3rem auto 1.5rem auto;
+}
+.progress-wrapper p {
+  padding: 1rem;
+  font-size: 22px;
+  font-weight: 600;
+  color: #374151;
+}
+.to-do-bg {
+  background: #fef3c7;
+  border-radius: 5px;
+}
+.in-progress-bg {
+  background: #eff6ff;
+  border-radius: 5px;
+}
+.done-bg {
+  background: #ecfdf5;
+  border-radius: 5px;
+}
+.completion-bg {
+  background: #f5f3ff;
+  border-radius: 5px;
+}
+.empty-chart {
+  color: #9ca3af;
+  font-size: 18px;
+  text-align: center;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-bg);
+}
+.task-progress-chart {
+  width: 100%;
+  height: 260px;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-bg);
+  border-radius: 5px;
+}
+.chart-container h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+}
+.task-columns {
+  width: 100%;
+  min-height: 550px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding: 0.3rem;
+
+  background-color: var(--primary-bg);
+}
+.column-wrapper {
+  width: 100%;
+  min-height: 500px;
+  height: auto;
+  border-radius: 8px;
+  background: white;
+}
+.column-wrapper.todo h3 {
+  background: #fef3c7;
+}
+.column-wrapper.drag-over {
+  background: #dbeafe;
+}
+.column-wrapper.inprogress h3 {
+  background: #eff6ff;
+}
+.column-wrapper.done h3 {
+  background: #ecfdf5;
+}
+.column-wrapper ul {
+  padding-left: 0;
+  min-height: 400px;
+  background-color: var(--primary-bg);
+}
+.column-wrapper h3 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+  padding: 24px;
+  border-radius: 8px 8px 0 0;
+}
+.task-card {
+  list-style: none;
+  background: var(--primary-bg);
+  padding: 1rem;
+  margin: 0.6rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  list-style: none;
+}
+.task-card h4 {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  color: #111827;
+}
+.task-card p {
+  font-size: 18px;
+  color: #374151;
+}
+.task-card button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-right: 8px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.file-error {
+  color: #dc2626;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
