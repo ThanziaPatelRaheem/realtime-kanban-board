@@ -17,6 +17,16 @@ SyncBoard is a responsive, real-time task management application built with Reac
 - **Responsive Interface:** Layouts optimized for desktop, tablet, and mobile screens.
 - **Automated Testing:** Unit, integration, and end-to-end tests using Vitest, React Testing Library, and Playwright.
 
+## 📸 Screenshots
+
+### Project Dashboard
+
+![SyncBoard Dashboard](screenshots/dashboard-main.png)
+
+### Create a New Task
+
+![SyncBoard Task Creation](screenshots/create-task.png)
+
 ## 🛠️ Tech Stack
 
 ### Frontend
@@ -42,47 +52,49 @@ SyncBoard is a responsive, real-time task management application built with Reac
 ## 📁 Project Structure
 
 ```text
-backend/
-└── server.js
-
-frontend/
-├── public/
-│   └── favicon.svg
+websocket-kanban-vitest-playwright-2026-main/
+├── backend/
 │
-├── src/
-│   ├── components/
-│   │   ├── Header/
-│   │   │   ├── Header.jsx
-│   │   │   └── Header.css
-│   │   ├── Footer/
-│   │   │   ├── Footer.jsx
-│   │   │   └── Footer.css
-│   │   ├── KanbanBoard/
-│   │   │   ├── KanbanBoard.jsx
-│   │   │   └── KanbanBoard.css
-│   │   ├── TaskCard/
-│   │   │   ├── TaskCard.jsx
-│   │   │   └── TaskCard.css
-│   │   ├── TaskChart/
-│   │   │   ├── TaskChart.jsx
-│   │   │   └── TaskChart.css
-│   │   ├── CustomSelect/
-│   │   │   ├── CustomSelect.jsx
-│   │   │   └── CustomSelect.styles.js
-│   │   └── DropColumn.jsx
-│   │
-│   ├── tests/
-│   │   ├── unit/
-│   │   ├── integration/
-│   │   └── e2e/
-│   │
-│   ├── App.jsx
-│   ├── index.css
-│   └── socket.js
+├── frontend/
+│   ├── public/
+│   │   └── favicon.svg
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Header/
+│   │   │   │   ├── Header.jsx
+│   │   │   │   └── Header.css
+│   │   │   ├── Footer/
+│   │   │   │   ├── Footer.jsx
+│   │   │   │   └── Footer.css
+│   │   │   ├── KanbanBoard/
+│   │   │   │   ├── KanbanBoard.jsx
+│   │   │   │   └── KanbanBoard.css
+│   │   │   ├── TaskCard/
+│   │   │   │   ├── TaskCard.jsx
+│   │   │   │   └── TaskCard.css
+│   │   │   ├── TaskChart/
+│   │   │   │   ├── TaskChart.jsx
+│   │   │   │   └── TaskChart.css
+│   │   │   ├── CustomSelect/
+│   │   │   │   ├── CustomSelect.jsx
+│   │   │   │   └── CustomSelect.styles.js
+│   │   │   └── DropColumn.jsx
+│   │   ├── tests/
+│   │   │   ├── unit/
+│   │   │   │   └── KanbanBoard.test.jsx
+│   │   │   ├── integration/
+│   │   │   │   └── WebSocketIntegration.test.jsx
+│   │   │   └── e2e/
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── socket.js
+│   └── index.html
 │
-├── index.html
-├── vite.config.js
-└── playwright.config.js
+├── screenshots/
+│   ├── dashboard.png
+│   └── create-task.png
+│
+└── README.md
 ```
 
 ## ⚙️ Getting Started
