@@ -1,5 +1,5 @@
 import React from "react";
-import KanbanBoard from "./components/Kanbanboard/KanbanBoard";
+import KanbanBoard from "./components/KanbanBoard/KanbanBoard";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
