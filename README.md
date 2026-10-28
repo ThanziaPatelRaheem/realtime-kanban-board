@@ -1,39 +1,34 @@
-# Real-Time Kanban Board
+# SyncBoard — Real-Time Kanban Board
 
-A real-time Kanban board built with React, Socket.IO, React DnD, Recharts, Vitest, React Testing Library, Playwright, and Node.js.
+SyncBoard is a responsive, real-time task management application built with React, Node.js, Express, and Socket.IO. It enables users to organize tasks across Kanban columns, track project progress, and collaborate through real-time task synchronization.
 
 ## 🚀 Live Demo
 
-Try the application here:
+[View SyncBoard](https://realtime-kanban-board-five.vercel.app)
 
-🔗 **https://realtime-kanban-board-five.vercel.app**
+## ✨ Features
 
----
+- **Task Management:** Create, edit, delete, and move tasks between To Do, In Progress, and Done.
+- **Drag-and-Drop:** Move tasks between Kanban columns using React DnD.
+- **Real-Time Synchronization:** Task changes are synchronized across connected clients using Socket.IO.
+- **Task Organization:** Assign priorities and categories to tasks.
+- **File Attachments:** Attach images and PDFs, with image previews and file validation.
+- **Project Dashboard:** Visualize task distribution, completion percentage, and project health using Recharts.
+- **Responsive Interface:** Layouts optimized for desktop, tablet, and mobile screens.
+- **Automated Testing:** Unit, integration, and end-to-end tests using Vitest, React Testing Library, and Playwright.
 
-## Features
-
-- Create, update, delete, and move tasks
-- Drag and drop tasks between columns
-- Real-time task sync using Socket.IO
-- Task priority and category selection using React Select
-- File upload with image preview and PDF support
-- Invalid file validation
-- Task progress chart using Recharts
-- Loading spinner while syncing tasks
-- Unit, Integration, and End-to-End tests
-
----
-
-## Tech Stack
+## 🛠️ Tech Stack
 
 ### Frontend
 
 - React
+- Vite
 - Socket.IO Client
 - React DnD
 - React Select
 - Recharts
 - React Icons
+- CSS
 - Vitest
 - React Testing Library
 - Playwright
@@ -44,37 +39,53 @@ Try the application here:
 - Express
 - Socket.IO
 
----
+## 📁 Project Structure
 
-## Project Structure
-
-```txt
+```text
 backend/
-├── server.js
+└── server.js
 
 frontend/
+├── public/
+│   └── favicon.svg
+│
 ├── src/
 │   ├── components/
-│   │   ├── KanbanBoard.jsx
-│   │   ├── TaskCard.jsx
-│   │   ├── DropColumn.jsx
-│   │   ├── CustomSelect.jsx
-│   │   └── TaskChart.jsx
+│   │   ├── Header/
+│   │   │   ├── Header.jsx
+│   │   │   └── Header.css
+│   │   ├── Footer/
+│   │   │   ├── Footer.jsx
+│   │   │   └── Footer.css
+│   │   ├── KanbanBoard/
+│   │   │   ├── KanbanBoard.jsx
+│   │   │   └── KanbanBoard.css
+│   │   ├── TaskCard/
+│   │   │   ├── TaskCard.jsx
+│   │   │   └── TaskCard.css
+│   │   ├── TaskChart/
+│   │   │   ├── TaskChart.jsx
+│   │   │   └── TaskChart.css
+│   │   ├── CustomSelect/
+│   │   │   ├── CustomSelect.jsx
+│   │   │   └── CustomSelect.styles.js
+│   │   └── DropColumn.jsx
 │   │
 │   ├── tests/
 │   │   ├── unit/
 │   │   ├── integration/
 │   │   └── e2e/
 │   │
+│   ├── App.jsx
+│   ├── index.css
 │   └── socket.js
 │
+├── index.html
 ├── vite.config.js
 └── playwright.config.js
 ```
 
----
-
-## Getting Started
+## ⚙️ Getting Started
 
 ### 1. Install Backend Dependencies
 
@@ -89,15 +100,11 @@ npm install
 npm run dev
 ```
 
-Backend runs on:
-
-```txt
-http://localhost:8000
-```
-
----
+Backend runs at `http://localhost:8000`.
 
 ### 3. Install Frontend Dependencies
+
+Open another terminal from the project root:
 
 ```bash
 cd frontend
@@ -110,47 +117,35 @@ npm install
 npm run dev
 ```
 
-Frontend runs on:
+Frontend runs at `http://localhost:3000`.
 
-```txt
-http://localhost:3000
-```
-
----
-
-## WebSocket Events
-
-The backend uses the following Socket.IO events:
+## 🔄 WebSocket Events
 
 | Event         | Description                                         |
 | ------------- | --------------------------------------------------- |
 | `task:create` | Creates a new task                                  |
-| `task:update` | Updates task title, description, priority, category |
+| `task:update` | Updates task details                                |
 | `task:move`   | Moves a task between columns                        |
 | `task:delete` | Deletes a task                                      |
-| `sync:tasks`  | Sends updated task list to all connected clients    |
+| `sync:tasks`  | Synchronizes the task list across connected clients |
 
----
+## 🧪 Testing
 
-## Testing
-
-### Run Unit and Integration Tests
+### Unit and Integration Tests
 
 ```bash
 cd frontend
-
-npm test
+npm test -- --run
 ```
 
----
+Tests cover Kanban board rendering, invalid file validation, task creation events, and real-time synchronization.
 
-### Run End-to-End Tests
+### End-to-End Tests
 
-Start both backend and frontend servers first, then run:
+Start both backend and frontend servers, then run:
 
 ```bash
 cd frontend
-
 npm run test:e2e
 ```
 
@@ -160,44 +155,20 @@ If Playwright browsers are not installed:
 npx playwright install
 ```
 
----
+End-to-end scenarios include creating tasks and dragging tasks between columns.
 
-## Test Coverage
+## 📝 Current Limitations
 
-### Unit Tests
+- Tasks are stored in backend memory rather than a database.
+- Task data resets when the backend server restarts.
+- File uploads use temporary browser object URLs rather than persistent storage.
+- Image attachment URLs may not remain available after a refresh or server restart.
 
-- Renders Kanban Board
-- Shows error for invalid file upload
+## 🔮 Future Improvements
 
-### Integration Tests
-
-- Emits `task:create` when a user adds a task
-- Updates UI when `sync:tasks` is received
-
-### End-to-End Tests
-
-- User can add a task and see it on the board
-- User can drag a task to another column
-
----
-
-## Notes
-
-- Tasks are stored in backend memory using an array.
-- Data remains available while the backend server is running.
-- Data resets when the backend server restarts.
-- File uploads are simulated using `URL.createObjectURL()`.
-- Image previews work during the active browser session.
-- Uploaded image URLs may not persist after page refresh or server restart.
-
----
-
-## Future Improvements
-
-- Persist tasks using MongoDB
-- Upload attachments to cloud storage
-- Add user authentication
-- Add filtering and search
-- Improve responsive mobile layout
-- Add due dates and task assignments
-- Add dark mode support
+- Persist tasks using MongoDB.
+- Store attachments using cloud storage.
+- Add user authentication and individual workspaces.
+- Implement task filtering and search.
+- Add due dates and task assignments.
+- Introduce collaborative features such as activity history and notifications.
