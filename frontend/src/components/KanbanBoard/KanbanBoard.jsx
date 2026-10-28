@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
-import TaskChart from "./TaskChart";
-import { socket } from "../socket.js";
+import { useEffect, useState } from "react";
+import TaskChart from "../TaskChart/TaskChart.jsx";
+import { socket } from "../../socket.js";
 import { useRef } from "react";
-import TaskCard from "./TaskCard.jsx";
-import CustomSelect from "./CustomSelect.jsx";
-import DropColumn from "./DropColumn.jsx";
+import TaskCard from "../TaskCard/TaskCard.jsx";
+import CustomSelect from "../CustomSelect/CustomSelect.jsx";
+import DropColumn from "../DropColumn.jsx";
 import { ImSpinner9 } from "react-icons/im";
+import "./KanbanBoard.css";
 
 function KanbanBoard() {
   const [task, setTask] = useState("");
@@ -17,6 +18,7 @@ function KanbanBoard() {
   const [attachment, setAttachment] = useState(null);
   const [loading, setLoading] = useState(true);
   const [fileError, setFileError] = useState("");
+  const [showTaskForm, setShowTaskForm] = useState(false);
 
   const fileInputRef = useRef(null);
 
@@ -137,44 +139,61 @@ function KanbanBoard() {
 
   return (
     <div className="board-wrapper">
-      <form onSubmit={addTask} className="task-form">
-        <input
-          type="text"
-          placeholder="Enter Task"
-          value={task}
-          onChange={(e) => setTask(e.target.value)}
-        />
-        <textarea
-          placeholder="Enter description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <CustomSelect
-          options={priorityOptions}
-          value={priority}
-          onChange={setPriority}
-          placeholder="Select Priority"
-        />
-        <CustomSelect
-          options={categoryOptions}
-          value={category}
-          onChange={setCategory}
-          placeholder="Select Category"
-        />
-        <div className="upload-file-wrapper">
-          <label htmlFor="file-upload">Upload File</label>
-          <input
-            id="file-upload"
-            type="file"
-            ref={fileInputRef}
-            onChange={handleFileUpload}
-          />
+      <div className="board-toolbar">
+        <div>
+          <h2>Project Board</h2>
+          <p>Organize and track your tasks in real time</p>
         </div>
 
-        {fileError && <p className="file-error">{fileError}</p>}
+        <button
+          type="button"
+          className="new-task-btn"
+          onClick={() => setShowTaskForm((prev) => !prev)}
+        >
+          {showTaskForm ? "Close Form" : "+ New Task"}
+        </button>
+      </div>
 
-        <button>Add Task</button>
-      </form>
+      {showTaskForm && (
+        <form onSubmit={addTask} className="task-form">
+          <input
+            type="text"
+            placeholder="Enter Task"
+            value={task}
+            onChange={(e) => setTask(e.target.value)}
+          />
+          <textarea
+            placeholder="Enter description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+          <CustomSelect
+            options={priorityOptions}
+            value={priority}
+            onChange={setPriority}
+            placeholder="Select Priority"
+          />
+          <CustomSelect
+            options={categoryOptions}
+            value={category}
+            onChange={setCategory}
+            placeholder="Select Category"
+          />
+          <div className="upload-file-wrapper">
+            <label htmlFor="file-upload">Upload File</label>
+            <input
+              id="file-upload"
+              type="file"
+              ref={fileInputRef}
+              onChange={handleFileUpload}
+            />
+          </div>
+
+          {fileError && <p className="file-error">{fileError}</p>}
+
+          <button>Add Task</button>
+        </form>
+      )}
       <section className="progress-wrapper">
         <p className="to-do-bg">To Do:{todoCount}</p>
         <p className="in-progress-bg">In Progress: {inProgressCount}</p>
