@@ -3,7 +3,7 @@ import { expect, vi } from "vitest";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { socket } from "../../socket.js";
-import KanbanBoard from "../../components/KanbanBoard";
+import KanbanBoard from "../../components/KanbanBoard/KanbanBoard.jsx";
 
 let syncTasksCallback;
 
@@ -30,6 +30,8 @@ function renderKanbanBoard() {
 
 test("emits task:create when user adds a task", () => {
   renderKanbanBoard();
+
+  fireEvent.click(screen.getByRole("button", { name: /new task/i }));
 
   fireEvent.change(screen.getByPlaceholderText("Enter Task"), {
     target: { value: "Build Kanban Board" },

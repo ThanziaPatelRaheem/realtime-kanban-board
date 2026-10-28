@@ -4,7 +4,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { fireEvent } from "@testing-library/react";
 
-import KanbanBoard from "../../components/KanbanBoard";
+import KanbanBoard from "../../components/KanbanBoard/KanbanBoard";
 
 vi.mock("../../socket.js", () => ({
   socket: {
@@ -35,7 +35,9 @@ test("renders Kanban board title", () => {
 test("shows error for invalid file upload", () => {
   renderKanbanBoard();
 
-  const input = screen.getByLabelText(/file/i);
+  fireEvent.click(screen.getByRole("button", { name: /new task/i }));
+
+  const input = screen.getByLabelText(/upload file/i);
 
   const file = new File(["hello"], "test.txt", {
     type: "text/plain",

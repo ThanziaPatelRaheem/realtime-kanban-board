@@ -1,5 +1,5 @@
-import React from "react";
 import Select from "react-select";
+import { customSelectStyles } from "./CustomSelect.styles";
 
 const CustomSelect = ({ options, value, onChange, placeholder }) => {
   const val = options.find((option) => option.value === value);
@@ -10,6 +10,7 @@ const CustomSelect = ({ options, value, onChange, placeholder }) => {
         value={val}
         onChange={(selectedOption) => onChange(selectedOption.value)}
         placeholder={placeholder}
+        styles={customSelectStyles}
       />
     </>
   );

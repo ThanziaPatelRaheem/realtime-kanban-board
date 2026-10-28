@@ -1,12 +1,18 @@
 import React from "react";
-import KanbanBoard from "./components/KanbanBoard";
+import KanbanBoard from "./components/Kanbanboard/KanbanBoard";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <div className="App">
-      <h1>Real-time Kanban Board</h1>
-      <h2>Manage tasks with WebSockets and Drag & Drop</h2>
-      <KanbanBoard />
+      <Header />
+
+      <main className="app-main">
+        <KanbanBoard />
+      </main>
+
+      <Footer />
     </div>
   );
 }

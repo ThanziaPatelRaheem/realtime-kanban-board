@@ -1,0 +1,225 @@
+.task-card {
+  list-style: none;
+  background: #334155;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border: 1px solid #475569;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.task-card:hover {
+  border-color: #60a5fa;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.task-card h4 {
+  margin: 0 0 0.75rem;
+  color: #f8fafc;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.task-card p {
+  margin: 0.4rem 0;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.task-card button {
+  margin: 0.5rem 0.35rem 0 0;
+  padding: 0.5rem 0.75rem;
+  background: #475569;
+  color: #f8fafc;
+  border: 1px solid #64748b;
+  border-radius: 7px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.task-card button:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.task-card input,
+.task-card textarea {
+  width: 100%;
+  padding: 0.65rem;
+  margin-top: 0.5rem;
+  background: #0f172a;
+  color: #f8fafc;
+  border: 1px solid #475569;
+  border-radius: 7px;
+}
+
+.task-card img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 0.75rem;
+  border-radius: 6px;
+}
+.task-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.priority-badge,
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.priority-badge.low {
+  background: #15382e;
+  color: #6ee7b7;
+}
+
+.priority-badge.medium {
+  background: #292819;
+  color: #fcd34d;
+}
+
+.priority-badge.high {
+  background: #45252b;
+  color: #fda4af;
+}
+
+.category-badge {
+  background: #172c46;
+  color: #93c5fd;
+}
+/* Move button — primary action */
+.task-card button.btn-move {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+
+.task-card button.btn-move:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+/* Edit button — neutral */
+.task-card button.btn-edit {
+  background: #475569;
+  border-color: #64748b;
+  color: #f8fafc;
+}
+
+.task-card button.btn-edit:hover {
+  background: #64748b;
+}
+
+/* Delete button — destructive action */
+.task-card button.btn-delete {
+  background: #442a32;
+  border-color: #7f3b49;
+  color: #fda4af;
+}
+
+.task-card button.btn-delete:hover {
+  background: #7f1d1d;
+  border-color: #ef4444;
+  color: #ffffff;
+}
+
+/* Save button — positive action */
+.task-card button.btn-save {
+  background: #047857;
+  border-color: #047857;
+  color: #ffffff;
+}
+
+.task-card button.btn-save:hover {
+  background: #065f46;
+}
+.task-description {
+  color: #cbd5e1;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0.5rem 0 0.75rem;
+  overflow-wrap: anywhere;
+}
+.task-description-wrapper {
+  margin: 0.75rem 0;
+}
+
+.task-description-label {
+  display: block;
+  color: #94a3b8;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.task-card .task-description {
+  margin: 0.3rem 0 0;
+  color: #cbd5e1;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.task-card .task-title {
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid #475569;
+}
+.task-actions {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #475569;
+}
+.task-attachment {
+  margin-top: 1rem;
+}
+
+.attachment-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #94a3b8;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.task-card .attachment-preview {
+  width: 120px;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #64748b;
+  border-radius: 8px;
+}
+.pdf-attachment {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 8px;
+}
+
+.pdf-filename {
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
